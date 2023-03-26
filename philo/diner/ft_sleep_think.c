@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_sleep_think.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 17:49:41 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/24 00:21:10 by abelhadj         ###   ########.fr       */
+/*   Created: 2023/03/24 01:21:30 by abelhadj          #+#    #+#             */
+/*   Updated: 2023/03/24 02:41:19 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	ft_init(t_data *data, t_philo *philo)
+void	ft_sleep_think(t_philo *philo)
 {
-	philo = ft_init_philo(data);
-	if (!philo)
-		return (1);
-	return (0);
+	ft_message(philo, "is sleeping\n");
+	usleep(philo->data->time_to_sleep * 1000);
+	ft_message(philo, "is thinking\n");
 }

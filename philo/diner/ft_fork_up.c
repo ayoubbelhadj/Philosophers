@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_fork_up.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 17:49:41 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/24 00:21:10 by abelhadj         ###   ########.fr       */
+/*   Created: 2023/03/24 01:20:41 by abelhadj          #+#    #+#             */
+/*   Updated: 2023/03/24 02:41:35 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	ft_init(t_data *data, t_philo *philo)
+void	ft_fork_up(t_philo *philo, pthread_mutex_t *fork)
 {
-	philo = ft_init_philo(data);
-	if (!philo)
-		return (1);
-	return (0);
+	pthread_mutex_lock(fork);
+	ft_message(philo, "has taken a fork\n");
 }
