@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:39:40 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/24 18:01:19 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/03/28 22:20:53 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long	ft_get_time(void)
 	long			time;
 
 	gettimeofday(&tp, NULL);
-	time = tp.tv_sec * 1e3 + tp.tv_usec / 1e3;
+	time = tp.tv_sec * 1000 + tp.tv_usec / 1000;
 	return (time);
 }
 

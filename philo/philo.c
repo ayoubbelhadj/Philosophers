@@ -6,57 +6,11 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:11:27 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/25 21:25:56 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:23:08 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philo.h"
-
-void	free_philo(t_philo *philo)
-{
-	t_philo	*tmp;
-
-	if (philo)
-	{
-		tmp = philo->next;
-		while (tmp != philo)
-		{
-			tmp = tmp->next;
-			free(tmp->previous);
-		}
-		free(tmp);
-		philo = NULL;
-	}
-}
-
-int	death(t_philo *philo)
-{
-	while (1)
-	{
-		if (ft_get_time() - philo->last_eat >= philo->data->time_to_die
-			&& ft_current_time(philo) % philo->data->time_to_die == 0)
-		{
-			ft_message(philo, "is die\n");
-			break ;
-		}
-		if (philo->data->nbr_must_eat > 0)
-		{
-			if (philo->data->finish >= philo->data->nbr_philo)
-			{
-				pthread_mutex_lock(&philo->data->lock);
-				break ;
-			}
-			if (philo->eat >= philo->data->nbr_must_eat && !philo->finish)
-			{
-				philo->finish = 1;
-				philo->data->finish++;
-			}
-		}
-		philo = philo->next;
-	}
-	return (1);
-}
-
 
 int	main(int ac, char **av)
 {
@@ -71,11 +25,7 @@ int	main(int ac, char **av)
 	if (!philo)
 		return (1);
 	if (ft_diner(philo))
-		return (1);
-	if (death(philo))
-	{
-		free_philo(philo);
-		free(data);
-	}
+		return (ft_error("Problem in Thread creation\n"));
+	ft_diner_end(philo);
 	return (0);
 }

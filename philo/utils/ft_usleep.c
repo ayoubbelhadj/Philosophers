@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fork_up.c                                       :+:      :+:    :+:   */
+/*   ft_usleep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 01:20:41 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/24 02:41:35 by abelhadj         ###   ########.fr       */
+/*   Created: 2023/03/28 22:14:48 by abelhadj          #+#    #+#             */
+/*   Updated: 2023/03/29 02:11:38 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	ft_fork_up(t_philo *philo, pthread_mutex_t *fork)
+void	ft_usleep(long time)
 {
-	pthread_mutex_lock(fork);
-	ft_message(philo, "has taken a fork\n");
+	long	now;
+
+	now = ft_get_time();
+	while (ft_get_time() < time + now)
+		usleep(1000);
 }

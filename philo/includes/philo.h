@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:57 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/24 16:11:42 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/03/30 22:18:02 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,13 @@ typedef struct s_data
 }	t_data;
 
 /* DINER */
+void	ft_diner_end(t_philo *philo);
 int		ft_diner(t_philo *philo);
 void	ft_eating(t_philo *philo);
 void	ft_fork_down(t_philo *philo);
-void	ft_fork_up(t_philo *philo, pthread_mutex_t *fork);
-void	ft_message(t_philo *philo, char *str);
+void	ft_fork_right(t_philo *philo, pthread_mutex_t *fork);
+void	ft_fork_left(t_philo *philo, pthread_mutex_t *fork);
+void	ft_message(t_philo *philo, char *str, int flag);
 void	ft_sleep_think(t_philo *philo);
 
 /* INIT */
@@ -70,5 +72,6 @@ long	ft_get_time(void);
 long	ft_current_time(t_philo *philo);
 int		ft_error(char *str);
 int		ft_isdigit(int c);
+void	ft_usleep(long time);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 22:03:57 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/24 16:14:52 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/03/30 20:55:36 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	newphilo(t_data *data, t_philo **philo, int i)
 	new_philo = malloc(sizeof(t_philo));
 	if (!new_philo)
 	{
-		printf("\nERROR ALLOCATION!\n");
+		ft_error("ALLOCATION.\n");
 		return ;
 	}
 	new_philo->last_eat = data->time_start;

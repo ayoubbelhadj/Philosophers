@@ -6,18 +6,25 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 02:29:17 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/24 16:19:28 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/03/29 03:20:53 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	ft_message(t_philo *philo, char *str)
+void	ft_message(t_philo *philo, char *str, int flag)
 {
 	long	time;
 
-	pthread_mutex_lock(&philo->data->lock);
 	time = ft_current_time(philo);
-	printf("\033[0;32m%ld Philo %d %s", time, philo->id, str);
-	pthread_mutex_unlock(&philo->data->lock);
+	if (flag == 1)
+		printf("\033[0;32m%ld PHILO %d %s", time, philo->id, str);
+	else if (flag == 2)
+		printf("\033[0;37m%ld PHILO %d %s", time, philo->id, str);
+	else if (flag == 3)
+		printf("\033[0;34m%ld PHILO %d %s", time, philo->id, str);
+	else if (flag == 4)
+		printf("\e[33;2;37m%ld PHILO %d %s", time, philo->id, str);
+	else if (flag == 0)
+		printf("\033[0;31m%ld PHILO %d %s", time, philo->id, str);
 }

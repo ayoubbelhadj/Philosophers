@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_fork_right.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 16:28:48 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/28 01:36:08 by abelhadj         ###   ########.fr       */
+/*   Created: 2023/03/24 01:20:41 by abelhadj          #+#    #+#             */
+/*   Updated: 2023/03/29 03:18:47 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-static void	ft_putchar(int c)
+void	ft_fork_right(t_philo *philo, pthread_mutex_t *fork)
 {
-	write(2, &c, 1);
-}
-
-int	ft_error(char *str)
-{
-	int	i;
-
-	i = 0;
-	write(2, "\033[0;31mERROR: ", 15);
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	return (1);
+	pthread_mutex_lock(fork);
+	pthread_mutex_lock(&philo->data->lock);
+	ft_message(philo, "TAKE THE RIGHT FORK 🥄.\n", 3);
+	pthread_mutex_unlock(&philo->data->lock);
 }
