@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 22:03:57 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/30 20:55:36 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:39:40 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ t_philo	*ft_init_philo(t_data *data)
 
 	i = 1;
 	philo = NULL;
+	data->end = 0;
 	pthread_mutex_init(&data->lock, NULL);
+	pthread_mutex_init(&data->eat, NULL);
+	pthread_mutex_init(&data->die, NULL);
 	while (i <= data->nbr_philo)
 	{
 		newphilo(data, &philo, i);

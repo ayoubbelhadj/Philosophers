@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:57 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/30 22:18:02 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:38:00 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ typedef struct s_data
 	int				time_to_sleep;
 	int				nbr_must_eat;
 	pthread_mutex_t	lock;
+	pthread_mutex_t	eat;
+	pthread_mutex_t	die;
 	int				finish;
+	int				end;
 	long			time_start;
 }	t_data;
 

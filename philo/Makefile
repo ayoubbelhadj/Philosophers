@@ -6,7 +6,7 @@
 #    By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:07:04 by abelhadj          #+#    #+#              #
-#    Updated: 2023/03/30 22:06:14 by abelhadj         ###   ########.fr        #
+#    Updated: 2023/04/03 02:18:42 by abelhadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,6 @@ $(NAME):  $(OBJ) $(HEADER)
 
 %.o: %.c $(HEADER)
 	@$(CC) -Wall -Wextra -Werror $(PTHREAD) $(OPTS) $(INCLUDES) -c $< -o $@
-
-
 
 clean:
 	@$(RM) $(OBJ)

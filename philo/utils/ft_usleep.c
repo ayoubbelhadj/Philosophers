@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:14:48 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/03/29 02:11:38 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:50:13 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_usleep(long time)
 
 	now = ft_get_time();
 	while (ft_get_time() < time + now)
-		usleep(1000);
+		usleep(400);
 }
