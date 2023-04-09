@@ -6,7 +6,7 @@
 /*   By: abelhadj <abelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 03:09:03 by abelhadj          #+#    #+#             */
-/*   Updated: 2023/04/03 21:38:26 by abelhadj         ###   ########.fr       */
+/*   Updated: 2023/04/04 23:04:31 by abelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_diner_end(t_philo *philo)
 			&& philo->data->finish >= philo->data->nbr_philo)
 		{
 			philo->data->end = 1;
-			printf("\033[0;37m	THE %d PHILOSOPHERS HAVE EAT %d TIME.\n",
+			printf("\033[0;103mTHE %d PHILOSOPHERS HAVE EATEN %d TIMES.\n",
 				philo->data->nbr_philo, philo->data->nbr_must_eat);
 			return ;
 		}
